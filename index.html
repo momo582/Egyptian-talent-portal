@@ -4,17 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بوابة المواهب المصرية</title>
-    <!-- ربط ملف CSS -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* تنسيقات عامة */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* الهيدر */
+        header {
+            background-color: #2b0000; /* خلفية الهيدر */
+            padding: 10px;
+            position: relative;
+        }
+
+        header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        header h1 {
+            margin:5px 0;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        header nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        header nav a {
+            margin: 0 10px;
+            padding: 10px 10px;
+            background-color: #400000; /* خلفية الأزرار */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        header nav a:hover {
+            background-color: #660000;
+        }
+
+        /* الأقسام */
+        main {
+            padding: 30px 20px;
+        }
+
+        section {
+            margin-bottom: 15px;
+        }
+
+        section a {
+            display: block;
+            background-color: #2b0000;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        section a:hover {
+            background-color: #400000;
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: #2b0000;
+            padding: 10px 0;
+            color: #fff;
+            font-size: 0.9rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <!-- الهيدر -->
     <header>
-        <div>
-            <a href="index.html">
-                <img src="photo/c26b5d21-c818-4404-985a-8784f0840db8.webp" class="header-logo" alt="شعار">
-            </a>
-        </div>
+        <img src="photo/c26b5d21-c818-4404-985a-8784f0840db8.webp" alt="Logo">
         <h1>بوابة المواهب المصرية</h1>
         <nav>
             <a href="signin.html">Sign In</a>
