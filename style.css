@@ -1,0 +1,115 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* تنسيق عام */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* الهيدر */
+header {
+    background-color: #250613;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.header-logo:hover {
+    transform: scale(1.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: white;
+    color: #250613;
+}
+
+/* الأقسام */
+main {
+    padding: 20px;
+}
+
+section {
+    margin: 10px 0;
+    padding: 20px;
+    background-color: #250613;
+    color: white;
+    border-radius: 2px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+section a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+section a:hover {
+    color: #ffcc00;
+}
+
+/* الفوتر */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #250613;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        font-size: 1rem;
+    }
+
+    .header-logo {
+        width: 50px;
+    }
+}

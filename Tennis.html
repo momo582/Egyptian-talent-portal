@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كرة التنس</title>
+    <style>
+        /* تنسيقات عامة */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+        }
+
+        header, footer {
+            background-color: #5a0000; /* لون أحمر مسود */
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        header h1, footer p {
+            margin: 0;
+            font-size: 1.6rem;
+        }
+
+        main {
+            padding: 20px;
+            margin-bottom: 80px; /* مساحة أسفل المحتوى لتجنب تداخل مع الفوتر */
+        }
+
+        .upload-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #8b0000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .upload-box input[type="file"] {
+            padding: 10px;
+            background-color: #ffd700;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .upload-box input[type="file"]:hover {
+            background-color: #ffcc00;
+        }
+
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 60px;
+        }
+
+        .video-box {
+            width: 300px;
+            background-color: #8b0000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .video-box video {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .video-box h3 {
+            margin: 10px 0 5px;
+            font-size: 1.2rem;
+        }
+
+        .video-box button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff3333;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            font-size: 1rem;
+            line-height: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-box button:hover {
+            background-color: #cc0000;
+        }
+
+        .video-box .owner-name {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .video-box .owner-name:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            font-size: 0.9rem;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #5a0000;
+            text-align: center;
+            padding: 10px 0;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="sports.html">
+        <img src="photo/c26b5d21-c818-4404-985a-8784f0840db8.webp" alt="Logo">
+    </a>
+        <h1>كرة التنس</h1>
+    </header>
+
+    <!-- مربع رفع الفيديو -->
+    <div class="upload-box">
+        <h3>رفع الفيديو الخاص بك</h3>
+        <input type="file" id="video-upload" accept="video/*">
+    </div>
+
+    <main>
+        <div class="video-container" id="video-container">
+            <!-- الفيديوهات الثابتة -->
+            <div class="video-box">
+                <video src="video/football1.mp4" onclick="goToVideoPage('football1.html')"></video>
+                <h3>الاسم</h3>
+                <a href="user1.html" class="owner-name">صفحة اللاعب 1</a>
+            </div>
+            <div class="video-box">
+                <video src="video/football2.mp4" onclick="goToVideoPage('football2.html')"></video>
+                <h3>الاسم</h3>
+                <a href="user2.html" class="owner-name">صفحة اللاعب 2</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 بوابة المواهب المصرية - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        const videoContainer = document.getElementById("video-container");
+
+        // إضافة فيديو جديد
+        document.getElementById("video-upload").addEventListener("change", function (event) {
+            var file = event.target.files[0];
+            if (file) {
+                var videoURL = URL.createObjectURL(file);
+
+                // إنشاء عنصر جديد للفيديو
+                var newVideoBox = document.createElement("div");
+                newVideoBox.classList.add("video-box");
+                newVideoBox.innerHTML = `
+                    <video src="${videoURL}" onclick="goToVideoPage('my-video.html')" controls></video>
+                    <h3>فيديو جديد</h3>
+                    <button onclick="deleteVideo(this)">×</button>
+                    <a href="my-profile.html" class="owner-name">صفحتي</a>
+                `;
+
+                // إضافة الفيديو إلى القائمة
+                videoContainer.appendChild(newVideoBox);
+            }
+        });
+
+        // حذف فيديو
+        function deleteVideo(button) {
+            var videoBox = button.parentElement;
+            videoBox.remove();
+        }
+
+        // الانتقال لصفحة الفيديو
+        function goToVideoPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
